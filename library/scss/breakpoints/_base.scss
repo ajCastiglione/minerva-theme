@@ -1,0 +1,329 @@
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.large-wrapper {
+  width: 96%;
+  margin: 0 auto;
+}
+
+/*********************
+LINK STYLES
+*********************/
+
+a,
+a:visited {
+  color: $blue;
+  /* on click */
+  &:active {
+  }
+  /* mobile tap color */
+  &:link {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  text-rendering: optimizelegibility;
+  font-weight: 500;
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+h1,
+.h1 {
+  font-size: 2.5em;
+  line-height: 1.333em;
+}
+
+h2,
+.h2 {
+  font-size: 1.75em;
+  line-height: 1.4em;
+  margin-bottom: 0.375em;
+}
+
+h3,
+.h3 {
+  font-size: 1.125em;
+}
+
+h4,
+.h4 {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+h5,
+.h5 {
+  font-size: 0.846em;
+  line-height: 2.09em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {
+  border-bottom: 0;
+  margin: 0;
+  li {
+    a {
+      display: block;
+      color: $blue;
+      text-decoration: none;
+      padding: 0.75em;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease-in-out;
+      &:hover,
+      &:focus {
+        border-bottom-color: $blue;
+      }
+    }
+    &:first-child {
+    }
+    &:last-child {
+    }
+    ul.sub-menu,
+    ul.children {
+      li {
+        a {
+          padding-left: 30px;
+          &:hover,
+          &:focus {
+          }
+          &:link {
+          }
+        }
+        &:first-child {
+        }
+        &:last-child {
+        }
+      }
+    }
+  }
+  /* end .menu li */
+  /* highlight current page */
+  li.current-menu-item,
+  li.current_page_item,
+  li.current_page_ancestor {
+    a {
+    }
+  }
+  /* end current highlighters */
+}
+
+/* end .nav */
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#content {
+  margin-top: 1.5em;
+}
+
+.hentry {
+  background-color: transparent;
+  margin-bottom: 1.5em;
+  header {
+    padding: 1.5em;
+  }
+  footer {
+    padding: 1.5em;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+/* end .hentry */
+
+.single-title,
+.page-title,
+.entry-title {
+  margin: 0;
+}
+
+/* entry content */
+
+.entry-content {
+  padding: 1.5em 1.5em 0;
+  p {
+    margin: 0.5rem 0;
+  }
+  ul {
+    li {
+      list-style: disc;
+      margin-left: 2em;
+    }
+  }
+  ol {
+    li {
+      list-style: decimal;
+      margin-left: 2em;
+    }
+  }
+  img {
+    margin: 0 0 1.5em 0;
+    max-width: 100%;
+    height: auto;
+  }
+  .size-thumbnail {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* end .entry-content */
+
+// the tag output
+.tags {
+  margin: 0;
+}
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+
+.pagination,
+.wp-prev-next {
+  margin: 1.5em 0;
+}
+
+.pagination {
+  text-align: center;
+  ul {
+    display: inline-block;
+    background-color: $white;
+    white-space: nowrap;
+    padding: 0;
+    clear: both;
+    border-radius: 3px;
+  }
+  li {
+    padding: 0;
+    margin: 0;
+    float: left;
+    display: inline;
+    overflow: hidden;
+    border-right: 1px solid $gray;
+  }
+  a,
+  span {
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    line-height: 1em;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0.75em;
+    min-width: 1em;
+    display: block;
+    color: $blue;
+    &:hover,
+    &:focus {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+  .current {
+    cursor: default;
+    color: $text-color;
+    &:hover,
+    &:focus {
+      background-color: $white;
+      color: $text-color;
+    }
+  }
+}
+
+/* end .bones_page_navi */
+
+/* fallback previous & next links */
+
+.wp-prev-next {
+  .prev-link {
+    float: left;
+  }
+  .next-link {
+    float: right;
+  }
+}
+
+/* end .wp-prev-next */
+
+/*********** Pre-defined styles from bones stock them above ***************/
+
+/****************************
+Global Section
+****************************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $lato;
+  line-height: 1.5;
+  color: $black;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    background-color: transparent;
+    border: 2px solid $black;
+    color: $black;
+  }
+  input[type="submit"] {
+    background-color: $black;
+    color: $white;
+    border: 2px solid $black;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: transparent;
+      color: $black;
+    }
+  }
+}
+
+/****************************
+Sidebar Section
+****************************/
+
+.sidebar {
+  margin: 1em 0;
+}
