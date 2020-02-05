@@ -125,10 +125,10 @@ add_action('customize_register', 'bones_theme_customizer');
 require('library/customizer/panels/external-libraries.php');
 
 /************* ACTIVE SIDEBARS ********************/
-require 'library/theme/sidebars.php';
+require 'theme/sidebars.php';
 
 /************* COMMENT LAYOUT *********************/
-require 'library/theme/comments.php';
+require 'theme/comments.php';
 
 /************* Adds gravity forms field title visibilty toggle *********************/
 add_filter('gform_enable_field_label_visibility_settings', '__return_true');
@@ -141,8 +141,8 @@ add_filter('gform_enable_field_label_visibility_settings', '__return_true');
 
 /************* ACF REGISTRATION *********************/
 // Activate ACF blocks
-// require 'theme-setup/acf_blocks.php';
+// require 'theme/acf-blocks.php';
 // Activate ACF settings page
-// require 'theme-setup/settings-page.php';
+// require 'theme/settings-page.php';
 // Activate ACF json import/export
-// require 'theme-setup/acf-saves.php';
+// require 'theme/acf-saves.php';
