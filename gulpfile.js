@@ -8,7 +8,13 @@ const bs = require("browser-sync");
 
 const scss = ["library/scss/*/*.scss"];
 const imgs = ["library/images/*"];
-const all = ["library/*.php", "*.php", "*/*.php", "library/js/*.js"];
+const all = [
+  "library/*.php",
+  "*.php",
+  "*/*.php",
+  "*/*/*.php",
+  "library/js/*.js"
+];
 
 //Compile scss
 gulp.task("compile", () => {
@@ -61,9 +67,9 @@ gulp.task("min-images", () => {
 });
 
 // Watch all files for compiling
-gulp.task("watch-scss", ["compile", "compile-login", "min-images"], () => {
+gulp.task("watch-scss", ["compile", "compile-login"], () => {
   bs.init({
-    proxy: "https://minervatheme.local",
+    proxy: "site.test",
     injectChanges: true,
     files: all
   });
