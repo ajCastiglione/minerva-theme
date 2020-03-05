@@ -6,9 +6,15 @@ const autoprefixer = require("autoprefixer");
 const image = require("gulp-image");
 const bs = require("browser-sync");
 
-const scss = ["library/scss/*/*.scss"];
+const scss = ["library/scss/*/*.scss", "library/scss/*.scss"];
 const imgs = ["library/images/*"];
-const all = ["library/*.php", "*.php", "*/*.php", "library/js/*.js"];
+const all = [
+  "library/*.php",
+  "*.php",
+  "*/*.php",
+  "*/*/*.php",
+  "library/js/*.js"
+];
 
 //Compile scss
 gulp.task("compile", () => {
@@ -61,14 +67,14 @@ gulp.task("min-images", () => {
 });
 
 // Watch all files for compiling
-gulp.task("watch-scss", ["compile", "compile-login", "min-images"], () => {
+gulp.task("init", () => {
   bs.init({
-    proxy: "https://minervatheme.local",
+    proxy: "minerva.test",
     injectChanges: true,
     files: all
   });
-  gulp.watch(scss, ["compile", "compile-login"]);
+  gulp.watch(scss, gulp.series("compile", "compile-login"));
 });
 
 // Start the process
-gulp.task("default", ["watch-scss"]);
+gulp.task("default", gulp.series("init"));
