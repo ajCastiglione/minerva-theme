@@ -8,14 +8,14 @@
   li {
     a {
       display: block;
-      color: $blue;
+      color: $black;
       text-decoration: none;
       padding: 0.75em;
       border-bottom: 2px solid transparent;
       transition: all 0.3s ease-in-out;
       &:hover,
       &:focus {
-        border-bottom-color: $blue;
+        border-bottom-color: $black;
       }
     }
     &:first-child {
@@ -63,7 +63,7 @@
       a {
         &:hover,
         &:focus {
-          color: darken($blue, 10%);
+          color: darken($black, 10%);
         }
       }
       ul.sub-menu,
