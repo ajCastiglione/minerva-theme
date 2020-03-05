@@ -6,6 +6,7 @@
 
 Bones.esproj/
 node_modules
+package-lock.json
 
 ############
 ## IDEs

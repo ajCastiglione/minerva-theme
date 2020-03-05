@@ -4,13 +4,13 @@
   "description": "Theme built around automation with gulp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp"
   },
   "author": "AJ C",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^8.4.1",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.7",
     "gulp-image": "^4.4.1",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
