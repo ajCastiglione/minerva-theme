@@ -9,12 +9,18 @@
   "author": "AJ C",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "autoprefixer": "^8.4.1",
     "browser-sync": "^2.26.7",
+    "browserify": "^16.5.1",
+    "gulp-babel": "^8.0.0",
     "gulp-image": "^6.0.0",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-sass": "^4.0.1"
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
     "gulp": "^4"
