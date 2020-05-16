@@ -3,13 +3,13 @@
 ****************************/
 // layout
 .wrap {
-  width: 96%;
-  margin: 0 auto;
+    width: 96%;
+    margin: 0 auto;
 }
 
 .large-wrapper {
-  width: 96%;
-  margin: 0 auto;
+    width: 96%;
+    margin: 0 auto;
 }
 
 /*********************
@@ -18,14 +18,14 @@
 
 a,
 a:visited {
-  color: $black;
-  /* on click */
-  &:active {
-  }
-  /* mobile tap color */
-  &:link {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
-  }
+    color: $black;
+    /* on click */
+    &:active {
+    }
+    /* mobile tap color */
+    &:link {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+    }
 }
 
 /******************************************************************
@@ -42,44 +42,44 @@ h4,
 .h4,
 h5,
 .h5 {
-  text-rendering: optimizelegibility;
-  font-weight: 500;
-  a,
-  a:hover {
-    text-decoration: none;
-  }
+    text-rendering: optimizelegibility;
+    font-weight: 500;
+    a,
+    a:hover {
+        text-decoration: none;
+    }
 }
 
 h1,
 .h1 {
-  font-size: 2.5em;
-  line-height: 1.333em;
+    font-size: 2.5em;
+    line-height: 1.333em;
 }
 
 h2,
 .h2 {
-  font-size: 1.75em;
-  line-height: 1.4em;
-  margin-bottom: 0.375em;
+    font-size: 1.75em;
+    line-height: 1.4em;
+    margin-bottom: 0.375em;
 }
 
 h3,
 .h3 {
-  font-size: 1.125em;
+    font-size: 1.125em;
 }
 
 h4,
 .h4 {
-  font-size: 1.1em;
-  font-weight: 700;
+    font-size: 1.1em;
+    font-weight: 700;
 }
 
 h5,
 .h5 {
-  font-size: 0.846em;
-  line-height: 2.09em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+    font-size: 0.846em;
+    line-height: 2.09em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /*********************
@@ -87,21 +87,21 @@ h5,
   *********************/
 
 #content {
-  margin-top: 1.5em;
+    margin-top: 1.5em;
 }
 
 .hentry {
-  background-color: transparent;
-  margin-bottom: 1.5em;
-  header {
-    padding: 1.5em;
-  }
-  footer {
-    padding: 1.5em;
-    p {
-      margin: 0;
+    background-color: transparent;
+    margin-bottom: 1.5em;
+    header {
+        padding: 1.5em;
     }
-  }
+    footer {
+        padding: 1.5em;
+        p {
+            margin: 0;
+        }
+    }
 }
 
 /* end .hentry */
@@ -109,44 +109,44 @@ h5,
 .single-title,
 .page-title,
 .entry-title {
-  margin: 0;
+    margin: 0;
 }
 
 /* entry content */
 
 .entry-content {
-  padding: 1.5em 1.5em 0;
-  p {
-    margin: 0.5rem 0;
-  }
-  ul {
-    li {
-      list-style: disc;
-      margin-left: 2em;
+    padding: 1.5em 1.5em 0;
+    p {
+        margin: 0.5rem 0;
     }
-  }
-  ol {
-    li {
-      list-style: decimal;
-      margin-left: 2em;
+    ul {
+        li {
+            list-style: disc;
+            margin-left: 2em;
+        }
     }
-  }
-  img {
-    margin: 0 0 1.5em 0;
-    max-width: 100%;
-    height: auto;
-  }
-  .size-thumbnail {
-    max-width: 100%;
-    height: auto;
-  }
+    ol {
+        li {
+            list-style: decimal;
+            margin-left: 2em;
+        }
+    }
+    img {
+        margin: 0 0 1.5em 0;
+        max-width: 100%;
+        height: auto;
+    }
+    .size-thumbnail {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 /* end .entry-content */
 
 // the tag output
 .tags {
-  margin: 0;
+    margin: 0;
 }
 
 /******************************************************************
@@ -155,54 +155,54 @@ h5,
 
 .pagination,
 .wp-prev-next {
-  margin: 1.5em 0;
+    margin: 1.5em 0;
 }
 
 .pagination {
-  text-align: center;
-  ul {
-    display: inline-block;
-    background-color: $white;
-    white-space: nowrap;
-    padding: 0;
-    clear: both;
-    border-radius: 3px;
-  }
-  li {
-    padding: 0;
-    margin: 0;
-    float: left;
-    display: inline;
-    overflow: hidden;
-    border-right: 1px solid $gray;
-  }
-  a,
-  span {
-    margin: 0;
-    text-decoration: none;
-    padding: 0;
-    line-height: 1em;
-    font-size: 1em;
-    font-weight: normal;
-    padding: 0.75em;
-    min-width: 1em;
-    display: block;
-    color: $black;
-    &:hover,
-    &:focus {
-      background-color: $black;
-      color: $white;
+    text-align: center;
+    ul {
+        display: inline-block;
+        background-color: $white;
+        white-space: nowrap;
+        padding: 0;
+        clear: both;
+        border-radius: 3px;
     }
-  }
-  .current {
-    cursor: default;
-    color: $text-color;
-    &:hover,
-    &:focus {
-      background-color: $white;
-      color: $text-color;
+    li {
+        padding: 0;
+        margin: 0;
+        float: left;
+        display: inline;
+        overflow: hidden;
+        border-right: 1px solid $gray;
     }
-  }
+    a,
+    span {
+        margin: 0;
+        text-decoration: none;
+        padding: 0;
+        line-height: 1em;
+        font-size: 1em;
+        font-weight: normal;
+        padding: 0.75em;
+        min-width: 1em;
+        display: block;
+        color: $black;
+        &:hover,
+        &:focus {
+            background-color: $black;
+            color: $white;
+        }
+    }
+    .current {
+        cursor: default;
+        color: $text-color;
+        &:hover,
+        &:focus {
+            background-color: $white;
+            color: $text-color;
+        }
+    }
 }
 
 /* end .bones_page_navi */
@@ -210,12 +210,12 @@ h5,
 /* fallback previous & next links */
 
 .wp-prev-next {
-  .prev-link {
-    float: left;
-  }
-  .next-link {
-    float: right;
-  }
+    .prev-link {
+        float: left;
+    }
+    .next-link {
+        float: right;
+    }
 }
 
 /* end .wp-prev-next */
@@ -223,42 +223,42 @@ h5,
 /*********** Pre-defined styles from bones stock them above ***************/
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 body {
-  font-family: $lato;
-  line-height: 1.5;
-  color: $black;
-  background-color: $white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  textarea {
-    background-color: transparent;
-    border: 2px solid $black;
+    font-family: $lato;
+    line-height: 1.5;
     color: $black;
-  }
-  input[type="submit"] {
-    background-color: $black;
-    color: $white;
-    border: 2px solid $black;
-    border-radius: 5px;
-    padding: 0.5em 1em;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: transparent;
-      color: $black;
+    background-color: $white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        background-color: transparent;
+        border: 2px solid $black;
+        color: $black;
     }
-  }
+    input[type="submit"] {
+        background-color: $black;
+        color: $white;
+        border: 2px solid $black;
+        border-radius: 5px;
+        padding: 0.5em 1em;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background-color: transparent;
+            color: $black;
+        }
+    }
 }
 
 /****************************
@@ -266,61 +266,61 @@ body {
   ****************************/
 
 .sidebar {
-  margin: 1em 0;
+    margin: 1em 0;
 }
 
 // Tablet sizes
-@include breakpoint("small") {
-  /*********************
+@include media("tablet") {
+    /*********************
 LAYOUT & GRID STYLES
 *********************/
 
-  .wrap {
-    width: 760px;
-  }
+    .wrap {
+        width: 760px;
+    }
 
-  .large-wrapper {
-    width: 85%;
-  }
+    .large-wrapper {
+        width: 85%;
+    }
 
-  /*********************
+    /*********************
   SIDEBARS & ASIDES
   *********************/
 
-  .widget {
-    padding: 0 10px;
-    margin: 2.2em 0;
-    ul {
-      li {
-        margin-bottom: 0.75em;
-
-        /* deep nesting */
+    .widget {
+        padding: 0 10px;
+        margin: 2.2em 0;
         ul {
-          margin-top: 0.75em;
-          padding-left: 1em;
+            li {
+                margin-bottom: 0.75em;
+
+                /* deep nesting */
+                ul {
+                    margin-top: 0.75em;
+                    padding-left: 1em;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 // Small desktop sizes
-@include breakpoint("medium") {
-  .wrap {
-    width: 990px;
-  }
+@include media("laptop") {
+    .wrap {
+        width: 990px;
+    }
 
-  .large-wrapper {
-    width: 80%;
-  }
+    .large-wrapper {
+        width: 80%;
+    }
 }
 
 // Large desktops
-@include breakpoint("large") {
-  .wrap {
-    width: 1140px;
-  }
-  .large-wrapper {
-    width: 75%;
-  }
+@include media("desktop") {
+    .wrap {
+        width: 1140px;
+    }
+    .large-wrapper {
+        width: 75%;
+    }
 }

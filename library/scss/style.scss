@@ -5,7 +5,6 @@ our mixins, functions, and variables that we'll be using across
 the whole project.
 *********************/
 
-// normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
 
 // Sass variables
@@ -26,20 +25,11 @@ the whole project.
 // Navigation
 @import "navigation/nav";
 
-// Pages
-@import "pages/pages";
-
-// Blocks
-// @import "blocks/blocks";
-
 // alert boxes
 @import "modules/alerts";
 
 // buttons
 @import "modules/buttons";
-
-// forms (inputs & labels)
-// @import "forms/form";
 
 /*********************
 PRINT STYLESHEET
@@ -48,6 +38,6 @@ sense to print at the bottom. Things like nav, ads, and forms should
 be set to display none.
 *********************/
 @media print {
-  // styles in print.scss
-  @import "partials/print";
+    // styles in print.scss
+    @import "partials/print";
 }
