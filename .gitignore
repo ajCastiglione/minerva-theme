@@ -7,6 +7,18 @@
 Bones.esproj/
 node_modules
 package-lock.json
+library/js/dist/
+library/css/style.css
+library/css/login.css
+library/dist/*
+# Include fonts
+!library/dist/fonts
+
+#############
+## Build maps
+#############
+*.map
+*.lock
 
 ############
 ## IDEs

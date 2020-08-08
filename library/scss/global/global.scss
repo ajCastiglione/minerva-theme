@@ -5,11 +5,29 @@
 .wrap {
     width: 96%;
     margin: 0 auto;
+    @include media("tablet") {
+        width: 760px;
+    }
+    @include media("laptop") {
+        width: 990px;
+    }
+    @include media("desktop") {
+        width: 1140px;
+    }
 }
 
 .large-wrapper {
     width: 96%;
     margin: 0 auto;
+    @include media("tablet") {
+        width: 85%;
+    }
+    @include media("laptop") {
+        width: 80%;
+    }
+    @include media("desktop") {
+        width: 75%;
+    }
 }
 
 /*********************
@@ -140,6 +158,26 @@ h5,
         max-width: 100%;
         height: auto;
     }
+    @include media("tablet") {
+        /* at this larger size, we can start to align images */
+        .alignleft,
+        img.alignleft {
+            margin-right: 1.5em;
+            display: inline;
+        }
+        .alignright,
+        img.alignright {
+            margin-left: 1.5em;
+            display: inline;
+        }
+        .aligncenter,
+        img.aligncenter {
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            clear: both;
+        }
+    }
 }
 
 /* end .entry-content */
@@ -267,27 +305,12 @@ body {
 
 .sidebar {
     margin: 1em 0;
+    @include media("tablet") {
+        margin: 0;
+    }
 }
-
-// Tablet sizes
-@include media("tablet") {
-    /*********************
-LAYOUT & GRID STYLES
-*********************/
-
-    .wrap {
-        width: 760px;
-    }
-
-    .large-wrapper {
-        width: 85%;
-    }
-
-    /*********************
-  SIDEBARS & ASIDES
-  *********************/
-
-    .widget {
+.widget {
+    @include media("tablet") {
         padding: 0 10px;
         margin: 2.2em 0;
         ul {
@@ -301,26 +324,5 @@ LAYOUT & GRID STYLES
                 }
             }
         }
-    }
-}
-
-// Small desktop sizes
-@include media("laptop") {
-    .wrap {
-        width: 990px;
-    }
-
-    .large-wrapper {
-        width: 80%;
-    }
-}
-
-// Large desktops
-@include media("desktop") {
-    .wrap {
-        width: 1140px;
-    }
-    .large-wrapper {
-        width: 75%;
     }
 }

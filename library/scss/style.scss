@@ -1,8 +1,5 @@
 /*********************
 IMPORTING PARTIALS
-These files are needed at the beginning so that we establish all
-our mixins, functions, and variables that we'll be using across
-the whole project.
 *********************/
 
 @import "partials/normalize";
@@ -30,14 +27,3 @@ the whole project.
 
 // buttons
 @import "modules/buttons";
-
-/*********************
-PRINT STYLESHEET
-Feel free to customize this. Remember to add things that won't make
-sense to print at the bottom. Things like nav, ads, and forms should
-be set to display none.
-*********************/
-@media print {
-    // styles in print.scss
-    @import "partials/print";
-}

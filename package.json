@@ -1,28 +1,41 @@
 {
-  "name": "test-theme",
-  "version": "1.0.0",
-  "description": "Theme built around automation with gulp",
-  "main": "index.js",
-  "scripts": {
-    "start": "gulp"
-  },
-  "author": "AJ C",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "autoprefixer": "^8.4.1",
-    "browser-sync": "^2.26.7",
-    "browserify": "^16.5.1",
-    "gulp-babel": "^8.0.0",
-    "gulp-image": "^6.0.0",
-    "gulp-plumber": "^1.2.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-uglify": "^3.0.2"
-  },
-  "dependencies": {
-    "gulp": "^4"
-  }
+    "name": "baseline-theme",
+    "version": "1.0.0",
+    "description": "Modernized Theme",
+    "main": "index.js",
+    "scripts": {
+        "dev": "concurrently \"gulp\" \"rm -rf .cache && parcel library/js/scripts.js --out-dir library/js/dist --out-file scripts.min.js\"",
+        "build": "parcel build library/js/scripts.js --out-dir library/js/dist --out-file scripts.min.js && gulp build && rm -rf node_modules"
+    },
+    "author": "AJ C",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/plugin-transform-runtime": "^7.9.6",
+        "@babel/preset-env": "^7.9.5",
+        "@babel/runtime-corejs2": "^7.9.6",
+        "autoprefixer": "^8.4.1",
+        "browser-sync": "^2.26.7",
+        "browserify": "^16.5.1",
+        "concurrently": "^5.2.0",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-babel": "^8.0.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-cssnano": "^2.1.3",
+        "gulp-if": "^3.0.0",
+        "gulp-plumber": "^1.2.0",
+        "gulp-postcss": "^7.0.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^4.0.1",
+        "gulp-sass-glob": "^1.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "merge-stream": "^2.0.0",
+        "parcel-bundler": "^1.12.4",
+        "webpack": "^4.43.0",
+        "webpack-stream": "^5.2.1"
+    },
+    "dependencies": {
+        "gulp": "^4"
+    }
 }
