@@ -28,7 +28,6 @@ const blocks = ["library/blocks/**/*.scss"];
 
 const scss = ["library/scss/*/*.scss", "library/blocks/**/*.scss"];
 const imgs = ["library/images/*"];
-const js = ["library/js/add-to-cart-ajax.js"];
 const all = [
   "library/*.php",
   "*.php",
@@ -65,24 +64,6 @@ gulp.task("compile-blocks", function () {
         .pipe(dest(path.join(componentDist, folder)))
     )
   );
-});
-
-// Compile and minify JS + babel
-gulp.task("js", function () {
-  return gulp
-    .src(js)
-    .pipe(
-      babel({
-        presets: ["@babel/preset-env"],
-      })
-    )
-    .pipe(
-      rename({
-        extname: ".min.js",
-      })
-    )
-    .pipe(uglify())
-    .pipe(gulp.dest("library/js/dist"));
 });
 
 //Compile scss
@@ -137,14 +118,10 @@ gulp.task("init", () => {
     files: all,
   });
   gulp.watch(scss, gulp.series("compile", "compile-login"));
-  gulp.watch(js, gulp.series("js"));
   gulp.watch(blocks, gulp.series("compile-blocks"));
 });
 
-gulp.task(
-  "build",
-  gulp.parallel("compile-blocks", "compile", "compile-login", "js")
-);
+gulp.task("build", gulp.parallel("compile-blocks", "compile", "compile-login"));
 
 // Start the process
 gulp.task("default", gulp.series("init"));
