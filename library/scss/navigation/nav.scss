@@ -1,11 +1,19 @@
-/*********************
-  NAVIGATION STYLES
-  *********************/
-
 .nav {
     border-bottom: 0;
     margin: 0;
+    @include media("tablet") {
+        border: 0;
+    }
+    ul {
+        @include media("tablet") {
+            background: none;
+            margin-top: 0;
+        }
+    }
     li {
+        @include media("tablet") {
+            display: inline-block;
+        }
         a {
             display: block;
             color: $black;
@@ -20,9 +28,43 @@
         }
         ul.sub-menu,
         ul.children {
+            @include media("tablet") {
+                margin-top: 0;
+                border: 1px solid #ccc;
+                border-top: 0;
+                position: absolute;
+                visibility: hidden;
+                z-index: 8999;
+            }
             li {
                 a {
                     padding-left: 30px;
+                    @include media("tablet") {
+                        padding-left: 10px;
+                        border-right: 0;
+                        display: block;
+                        width: 180px;
+                        border-bottom: 1px solid #ccc;
+                    }
+                }
+                &:last-child {
+                    a {
+                        @include media("tablet") {
+                            border-bottom: 0;
+                        }
+                    }
+                }
+                &:hover > ul {
+                    @include media("tablet") {
+                        top: auto;
+                        visibility: visible;
+                    }
+                }
+                ul {
+                    @include media("tablet") {
+                        top: 0;
+                        left: 100%;
+                    }
                 }
             }
         }
@@ -36,56 +78,4 @@
         }
     }
     /* end current highlighters */
-}
-
-@include media("tablet") {
-    .nav {
-        border: 0;
-        ul {
-            background: none;
-            margin-top: 0;
-        }
-        li {
-            display: inline-block;
-            a {
-                &:hover,
-                &:focus {
-                    color: darken($black, 10%);
-                }
-            }
-            ul.sub-menu,
-            ul.children {
-                margin-top: 0;
-                border: 1px solid #ccc;
-                border-top: 0;
-                position: absolute;
-                visibility: hidden;
-                z-index: 8999;
-                li {
-                    a {
-                        padding-left: 10px;
-                        border-right: 0;
-                        display: block;
-                        width: 180px;
-                        border-bottom: 1px solid #ccc;
-                    }
-
-                    &:last-child {
-                        a {
-                            border-bottom: 0;
-                        }
-                    }
-                    ul {
-                        top: 0;
-                        left: 100%;
-                    }
-                }
-            }
-            /* showing sub-menus */
-            &:hover > ul {
-                top: auto;
-                visibility: visible;
-            }
-        }
-    }
 }
