@@ -82,20 +82,6 @@ if (!isset($content_width)) {
 
 /************* THEME CUSTOMIZE *********************/
 
-/* 
-  A good tutorial for creating your own Sections, Controls and Settings:
-  http://code.tutsplus.com/series/a-guide-to-the-wordpress-theme-customizer--wp-33722
-  
-  Good articles on modifying the default options:
-  http://natko.com/changing-default-wordpress-theme-customization-api-sections/
-  http://code.tutsplus.com/tutorials/digging-into-the-theme-customizer-components--wp-27162
-  
-  To do:
-  - Create a js for the postmessage transport method
-  - Create some sanitize functions to sanitize inputs
-  - Create some boilerplate Sections, Controls and Settings
-*/
-
 function bones_theme_customizer($wp_customize)
 {
   // $wp_customize calls go here.
@@ -138,8 +124,8 @@ add_filter('gform_enable_field_label_visibility_settings', '__return_true');
 
 /************* ACF REGISTRATION *********************/
 // Activate ACF blocks
-// require 'theme/acf-blocks.php';
+// require get_template_directory() . '/theme/acf-blocks.php';
 // Activate ACF settings page
-// require 'theme/settings-page.php';
+// require get_template_directory() . '/theme/acf-options-page.php';
 // Activate ACF json import/export
-// require 'theme/acf-saves.php';
+// require get_template_directory() . '/theme/acf-saves.php';
