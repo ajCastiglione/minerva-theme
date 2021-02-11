@@ -191,6 +191,9 @@ function bones_theme_support()
 		'search-form',
 		'comment-form'
 	));
+	
+	// Gutenberg Theme Support
+	add_theme_support('align-wide');
 } /* end bones theme support */
 
 
