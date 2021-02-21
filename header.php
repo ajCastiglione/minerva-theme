@@ -59,7 +59,7 @@
 							'menu' => __('The Main Menu', 'bonestheme'),
 							'menu_class' => 'nav top-nav',
 							'theme_location' => 'main-nav',
-							'depth' => 0,
+							'depth' => 2,
 						)); ?>
 					</nav>
 				</div>

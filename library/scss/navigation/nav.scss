@@ -14,13 +14,14 @@
         @include media("tablet") {
             display: inline-block;
         }
+
         a {
             display: block;
             color: $black;
             text-decoration: none;
             padding: 0.75em;
             border-bottom: 2px solid transparent;
-            transition: all 0.3s ease-in-out;
+            transition: border 0.3s ease-in-out;
             &:hover,
             &:focus {
                 border-bottom-color: $black;
@@ -28,15 +29,15 @@
         }
         ul.sub-menu,
         ul.children {
-            @include media("tablet") {
-                margin-top: 0;
-                border: 1px solid #ccc;
-                border-top: 0;
-                position: absolute;
-                visibility: hidden;
-                z-index: 8999;
-            }
+            margin-top: 0;
+            border: 1px solid #ccc;
+            border-top: 0;
+            position: absolute;
+            visibility: hidden;
+            z-index: 8999;
+            background-color: $white;
             li {
+                display: block;
                 a {
                     padding-left: 30px;
                     @include media("tablet") {
@@ -54,18 +55,19 @@
                         }
                     }
                 }
-                &:hover > ul {
-                    @include media("tablet") {
-                        top: auto;
-                        visibility: visible;
-                    }
-                }
+
                 ul {
                     @include media("tablet") {
                         top: 0;
                         left: 100%;
                     }
                 }
+            }
+        }
+        &:hover > ul {
+            @include media("tablet") {
+                top: auto;
+                visibility: visible;
             }
         }
     }

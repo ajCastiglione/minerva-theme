@@ -16,14 +16,13 @@ IMPORTING PARTIALS
 // import mixins
 @import "partials/mixins";
 
-// Global
+// Import Modules
+@import "modules/alerts";
+@import "modules/buttons";
+@import "modules/forms";
+
+// Global Styles
 @import "global/global";
 
 // Navigation
 @import "navigation/nav";
-
-// alert boxes
-@import "modules/alerts";
-
-// buttons
-@import "modules/buttons";
