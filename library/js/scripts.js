@@ -1,4 +1,9 @@
 /*
- * Put all your regular jQuery in here.
+ * Load imports here.
  */
-jQuery(document).ready(function ($) {}); /* end of as page load scripts */
+
+import Front from "./components/Front";
+
+jQuery(document).ready(function ($) {
+  Front($);
+}); /* end of as page load scripts */
