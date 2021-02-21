@@ -69,11 +69,12 @@ function bones_rss_version()
 }
 
 // remove WP version from scripts
-// function bones_remove_wp_ver_css_js( $src ) {
-// 	if ( strpos( $src, 'ver=' ) )
-// 		$src = remove_query_arg( 'ver', $src );
-// 	return $src;
-// }
+function bones_remove_wp_ver_css_js($src)
+{
+	if (strpos($src, 'ver='))
+		$src = remove_query_arg('ver', $src);
+	return $src;
+}
 
 // remove injected CSS for recent comments widget
 function bones_remove_wp_widget_recent_comments_style()
@@ -112,18 +113,17 @@ function bones_scripts_and_styles()
 	if (!is_admin()) {
 
 		// register main stylesheet
-		wp_register_style('bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all');
+		wp_register_style('mwd-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all');
 
 		//adding scripts file in the footer
-		wp_register_script('bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.min.js', array('jquery'), '', true);
+		wp_register_script('mwd-js', get_stylesheet_directory_uri() . '/library/js/dist/scripts.min.js', array('jquery'), '', true);
 
 		// enqueue styles and scripts
-		wp_enqueue_style('bones-stylesheet');
+		wp_enqueue_style('mwd-stylesheet');
 		wp_enqueue_style('bones-ie-only');
 
-
 		wp_enqueue_script('jquery');
-		wp_enqueue_script('bones-js');
+		wp_enqueue_script('mwd-js');
 	}
 }
 
@@ -191,43 +191,11 @@ function bones_theme_support()
 		'search-form',
 		'comment-form'
 	));
-	
+
 	// Gutenberg Theme Support
 	add_theme_support('align-wide');
 } /* end bones theme support */
 
-
-/*********************
-RELATED POSTS FUNCTION
- *********************/
-
-// Related Posts Function (call using bones_related_posts(); )
-function bones_related_posts()
-{
-	echo '<ul id="bones-related-posts">';
-	global $post;
-	$tags = wp_get_post_tags($post->ID);
-	if ($tags) {
-		foreach ($tags as $tag) {
-			$tag_arr .= $tag->slug . ',';
-		}
-		$args = array(
-			'tag' => $tag_arr,
-			'numberposts' => 5, /* you can change this to show more */
-			'post__not_in' => array($post->ID)
-		);
-		$related_posts = get_posts($args);
-		if ($related_posts) {
-			foreach ($related_posts as $post) : setup_postdata($post); ?>
-				<li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-			<?php endforeach;
-		} else { ?>
-			<?php echo '<li class="no_related_post">' . __('No Related Posts Yet!', 'bonestheme') . '</li>'; ?>
-<?php }
-	}
-	wp_reset_postdata();
-	echo '</ul>';
-} /* end bones related posts function */
 
 /*********************
 PAGE NAVI
@@ -272,7 +240,3 @@ function bones_excerpt_more($more)
 	// edit here if you like
 	return '...  <a class="excerpt-read-more" href="' . get_permalink($post->ID) . '" title="' . __('Read ', 'bonestheme') . esc_attr(get_the_title($post->ID)) . '">' . __('Read more &raquo;', 'bonestheme') . '</a>';
 }
-
-
-
-?>
