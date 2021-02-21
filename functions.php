@@ -9,7 +9,7 @@ URL: https://minervawebdevelopment.com
 require_once('library/bones.php');
 
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
-// require_once( 'library/admin.php' );
+require_once('library/admin.php');
 
 /*********************
 LAUNCH BONES
@@ -36,7 +36,6 @@ function bones_ahoy()
 
   // enqueue base scripts and styles
   add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
-  // ie conditional wrapper
 
   // launching this stuff after theme setup
   bones_theme_support();
@@ -48,6 +47,9 @@ function bones_ahoy()
   add_filter('the_content', 'bones_filter_ptags_on_images');
   // cleaning up excerpt
   add_filter('excerpt_more', 'bones_excerpt_more');
+
+  // Adding full-width blocks in editor support
+  add_theme_support('align-wide');
 
   // Removing bloat for emojis and such
   remove_action('wp_head', 'print_emoji_detection_script', 7);
