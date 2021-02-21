@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "dev": "concurrently \"gulp\" \"rm -rf .cache && parcel library/js/scripts.js --out-dir library/js/dist --out-file scripts.min.js\"",
-        "build": "parcel build library/js/scripts.js --out-dir library/js/dist --out-file scripts.min.js && gulp build && rm -rf node_modules"
+        "build": "parcel build library/js/scripts.js --out-dir library/js/dist --out-file scripts.min.js && gulp build && rm -rf node_modules",
+        "build_local": "parcel build library/js/scripts.js --out-dir library/js/dist --out-file scripts.min.js && gulp build"
     },
     "author": "AJ C",
     "license": "ISC",

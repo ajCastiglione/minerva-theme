@@ -25,7 +25,7 @@ const componentSrc = path.join(__dirname, "library/blocks");
 const componentDist = path.join(__dirname, "library/dist");
 
 const blocks = ["library/blocks/**/*.scss"];
-
+const editor = ["library/scss/editor-style.scss"];
 const scss = ["library/scss/*/*.scss", "library/blocks/**/*.scss"];
 const imgs = ["library/images/*"];
 const all = [
@@ -34,8 +34,6 @@ const all = [
   "*/*.php",
   "**/**/*.php",
   "library/js/*.js",
-  "library/scss/*/*.scss",
-  "library/blocks/**/*.scss",
 ];
 
 const getFolders = (dir) =>
@@ -62,6 +60,7 @@ gulp.task("compile-blocks", function () {
         .pipe(gulpif(!isDevelopment, cssnano()))
         .pipe(gulpif(isDevelopment, sourcemaps.write(".")))
         .pipe(dest(path.join(componentDist, folder)))
+        .pipe(bs.stream())
     )
   );
 });
@@ -110,18 +109,42 @@ gulp.task("compile-login", () => {
     .pipe(gulp.dest("./library/css"));
 });
 
+gulp.task("compile-editor", () => {
+  return gulp
+    .src("./library/scss/editor-style.scss")
+    .pipe(plumber())
+    .pipe(
+      sass({
+        outputStyle: "compressed",
+      }).on("error", sass.logError)
+    )
+    .pipe(
+      postcss([
+        autoprefixer({
+          browsers: ["last 2 versions"],
+          cascade: false,
+        }),
+      ])
+    )
+    .pipe(gulp.dest("./library/css"));
+});
+
 // Watch all files for compiling
 gulp.task("init", () => {
   bs.init({
-    proxy: "mwd.test",
+    proxy: "mwdbasetheme.test",
     injectChanges: true,
     files: all,
   });
   gulp.watch(scss, gulp.series("compile", "compile-login"));
   gulp.watch(blocks, gulp.series("compile-blocks"));
+  gulp.watch(editor, gulp.series("compile-editor"));
 });
 
-gulp.task("build", gulp.parallel("compile-blocks", "compile", "compile-login"));
+gulp.task(
+  "build",
+  gulp.parallel("compile-blocks", "compile", "compile-login", "compile-editor")
+);
 
 // Start the process
 gulp.task("default", gulp.series("init"));
