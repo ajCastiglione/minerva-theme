@@ -7,7 +7,7 @@ const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const rename = require("gulp-rename");
 const uglify = require("gulp-uglify");
-const babel = require("gulp-babel");
+const webpack = require("webpack-stream");
 const bs = require("browser-sync");
 
 const fs = require("fs");
@@ -21,10 +21,11 @@ const gulpif = require("gulp-if");
 const env = process.env.NODE_ENV || "development";
 const isDevelopment = env === "development";
 
-const componentSrc = path.join(__dirname, "library/blocks");
+const componentSrc = path.join(__dirname, "blocks");
 const componentDist = path.join(__dirname, "library/dist");
 
-const blocks = ["library/blocks/**/*.scss"];
+const blocks_scss = ["blocks/**/*.scss"];
+const blocks_js = ["blocks/**/*.js"];
 const editor = ["library/scss/editor-style.scss"];
 const scss = ["library/scss/*/*.scss", "library/blocks/**/*.scss"];
 const imgs = ["library/images/*"];
@@ -41,7 +42,7 @@ const getFolders = (dir) =>
     .readdirSync(dir)
     .filter((file) => fs.statSync(path.join(dir, file)).isDirectory());
 
-gulp.task("compile-blocks", function () {
+gulp.task("compile-blocks-styles", function () {
   return mergeStream(
     ...getFolders(componentSrc).map((folder) =>
       src(path.join(componentSrc, folder, "*.scss"))
@@ -58,6 +59,38 @@ gulp.task("compile-blocks", function () {
           ])
         )
         .pipe(gulpif(!isDevelopment, cssnano()))
+        .pipe(gulpif(isDevelopment, sourcemaps.write(".")))
+        .pipe(dest(path.join(componentDist, folder)))
+        .pipe(bs.stream())
+    )
+  );
+});
+
+gulp.task("compile-blocks-js", function () {
+  return mergeStream(
+    ...getFolders(componentSrc).map((folder) =>
+      src(path.join(componentSrc, folder, "*.js"))
+        .pipe(
+          webpack({
+            mode: "development",
+            output: {
+              filename: folder + ".js",
+            },
+            module: {
+              rules: [
+                {
+                  test: /\.(js|jsx)$/,
+                  use: ["babel-loader"],
+                  exclude: /node_modules/,
+                },
+              ],
+            },
+          })
+        )
+        .pipe(gulpif(isDevelopment, sourcemaps.init()))
+        .pipe(concat(folder + ".js"))
+        .pipe(gulpif(!isDevelopment, uglify()))
+        .pipe(rename({ extname: ".min.js" }))
         .pipe(gulpif(isDevelopment, sourcemaps.write(".")))
         .pipe(dest(path.join(componentDist, folder)))
         .pipe(bs.stream())
@@ -137,13 +170,20 @@ gulp.task("init", () => {
     files: all,
   });
   gulp.watch(scss, gulp.series("compile", "compile-login"));
-  gulp.watch(blocks, gulp.series("compile-blocks"));
+  gulp.watch(blocks_scss, gulp.series("compile-blocks-styles"));
+  gulp.watch(blocks_js, gulp.series("compile-blocks-js"));
   gulp.watch(editor, gulp.series("compile-editor"));
 });
 
 gulp.task(
   "build",
-  gulp.parallel("compile-blocks", "compile", "compile-login", "compile-editor")
+  gulp.parallel(
+    "compile-blocks-styles",
+    "compile-blocks-js",
+    "compile",
+    "compile-login",
+    "compile-editor"
+  )
 );
 
 // Start the process
