@@ -8,22 +8,15 @@
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article">
+					<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 						<header class="article-header">
-
-							<h1 class="page-title"><?= the_title(); ?></h1>
-
+							<h1 class="page-title"><?php the_title(); ?></h1>
 						</header>
 
-						<section class="entry-content" itemprop="articleBody">
+						<section class="entry-content " itemprop="articleBody">
 							<?php the_content(); ?>
-
 						</section>
-
-						<footer class="article-footer">
-
-						</footer>
 
 					</article>
 
@@ -37,5 +30,6 @@
 	</div>
 
 </div>
+
 
 <?php get_footer(); ?>

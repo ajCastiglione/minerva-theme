@@ -4,8 +4,8 @@
 function bones_comments($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment; ?>
-    <div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
-        <article class="cf">
+    <div id="comment-<?php comment_ID(); ?>" <?php comment_class(''); ?>>
+        <article class="">
             <header class="comment-author vcard">
                 <?php
                 /*
@@ -31,7 +31,7 @@ function bones_comments($comment, $args, $depth)
                     <p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
                 </div>
             <?php endif; ?>
-            <section class="comment_content cf">
+            <section class="comment_content ">
                 <?php comment_text() ?>
             </section>
             <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
