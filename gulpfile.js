@@ -207,7 +207,7 @@ gulp.task("init", () => {
 
 gulp.task(
   "build",
-  gulp.parallel(
+  gulp.series(
     "compile-blocks-styles",
     "compile-blocks-js",
     "compile",
