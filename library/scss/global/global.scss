@@ -277,32 +277,5 @@ body {
     background-color: $white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-/****************************
-  Sidebar Section
-  ****************************/
-
-.sidebar {
-    margin: 1em 0;
-    @include media("tablet") {
-        margin: 0;
-    }
-}
-.widget {
-    @include media("tablet") {
-        padding: 0 10px;
-        margin: 2.2em 0;
-        ul {
-            li {
-                margin-bottom: 0.75em;
-
-                /* deep nesting */
-                ul {
-                    margin-top: 0.75em;
-                    padding-left: 1em;
-                }
-            }
-        }
-    }
+    overflow-x: hidden;
 }
