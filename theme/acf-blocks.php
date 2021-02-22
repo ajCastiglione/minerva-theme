@@ -5,25 +5,26 @@ function my_acf_init()
     // Check if function exists and hook into setup.
     if (function_exists('acf_register_block_type')) {
         acf_register_block_type(array(
-            'name'              => 'testimonial',
-            'title'             => __('Testimonial'),
-            'description'       => __('A testimonial block.'),
+            'name'              => 'ajax-blogs',
+            'title'             => __('Ajax Blog Posts'),
+            'description'       => __('Will display blog posts using AJAX to fetch more.'),
             'render_callback'   => 'my_acf_block_render_callback',
-            'category'          => 'formatting',
-            'icon'              => 'admin-comments',
-            'keywords'          => array('testimonial', 'quote'),
+            'category'          => 'layout',
+            'icon'              => 'admin-post',
+            'keywords'          => array('blogs', 'posts', 'ajax blog', 'ajax posts'),
+            'enqueue_style'     => get_stylesheet_directory_uri() . '/library/dist/ajax-blogs/ajax-blogs.css',
+            'enqueue_script'     => get_stylesheet_directory_uri() . '/library/dist/ajax-blogs/ajax-blogs.min.js'
         ));
     }
 }
 
 function my_acf_block_render_callback($block)
 {
-    // convert name ("acf/testimonial") into path friendly slug ("testimonial")
     // Name has to be equal to the file name after content
     $slug = str_replace('acf/', '', $block['name']);
 
     // include a template part from within the "template-parts/blocks" folder
-    $path = get_template_directory() . "/library/blocks/{$slug}/{$slug}.php";
+    $path = get_template_directory() . "/blocks/{$slug}/{$slug}.php";
     if (file_exists($path)) {
         include($path);
     }

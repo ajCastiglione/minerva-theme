@@ -126,7 +126,9 @@ add_filter('gform_enable_field_label_visibility_settings', '__return_true');
 
 /************* ACF REGISTRATION *********************/
 // Activate ACF blocks
-// require get_template_directory() . '/theme/acf-blocks.php';
+require get_template_directory() . '/theme/acf-blocks.php';
+// Optional - Block Logic Files
+require get_template_directory() . '/theme/block-logic/admin-ajax.php';
 // Activate ACF settings page
 // require get_template_directory() . '/theme/acf-options-page.php';
 // Activate ACF json import/export
