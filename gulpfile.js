@@ -72,7 +72,7 @@ gulp.task("compile-blocks-js", function () {
       src(path.join(componentSrc, folder, "*.js"))
         .pipe(
           webpack({
-            mode: "development",
+            mode: "production",
             output: {
               filename: folder + ".js",
             },
