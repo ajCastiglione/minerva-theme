@@ -2,8 +2,4 @@
  * Load imports here.
  */
 
-import Front from "./components/Front";
-
-jQuery(document).ready(function ($) {
-  Front($);
-}); /* end of as page load scripts */
+jQuery(document).ready(function ($) {}); /* end of as page load scripts */
