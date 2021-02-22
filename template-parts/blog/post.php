@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?> role="article">
 
     <header class="article-header entry-header">
 

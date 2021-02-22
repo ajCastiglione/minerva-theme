@@ -39,7 +39,7 @@ if (file_exists(get_template_directory() . '/template-parts/blog/post.php')) {
 <section id="<?php echo esc_attr($id); ?>">
     <div class="<?php echo esc_attr($className); ?>">
 
-        <div class="ajax-blog__posts" data-page="<?= get_query_var('paged') ?: 1; ?>" data-max="<?= $blogs->max_num_pages ?>" data-per="<?= $posts_per_page ?>">
+        <div class="ajax-blogs__posts" data-page="<?= get_query_var('paged') ?: 1; ?>" data-max="<?= $blogs->max_num_pages ?>" data-per="<?= $posts_per_page ?>">
 
             <?php if ($blogs->have_posts()) : while ($blogs->have_posts()) : $blogs->the_post(); ?>
                     <?= get_template_part($template); ?>
@@ -48,7 +48,7 @@ if (file_exists(get_template_directory() . '/template-parts/blog/post.php')) {
 
         </div>
 
-        <button class="ajax-blog__load-more btn">Load More</button>
+        <button class="ajax-blogs__load-more btn">Load More</button>
 
     </div>
 </section>

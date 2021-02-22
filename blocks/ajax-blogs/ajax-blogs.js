@@ -1,13 +1,13 @@
 import axios from "axios";
 const $ = jQuery;
 
-const btn = $(".ajax-blog__load-more");
+const btn = $(".ajax-blogs__load-more");
 
 if (typeof btn !== "undefined" && btn !== null) {
   btn.on("click", function () {
-    let container = $(".ajax-blog__posts");
-    let current_page = parseInt($(".ajax-blog__posts").attr("data-page"));
-    let posts_per_page = parseInt($(".ajax-blog__posts").data("per"));
+    let container = $(".ajax-blogs__posts");
+    let current_page = parseInt($(".ajax-blogs__posts").attr("data-page"));
+    let posts_per_page = parseInt($(".ajax-blogs__posts").data("per"));
 
     let params = new URLSearchParams();
     params.append("action", "load_more_posts");
@@ -18,8 +18,8 @@ if (typeof btn !== "undefined" && btn !== null) {
       .post("/wp-admin/admin-ajax.php", params)
       .then((res) => {
         let posts = res.data.data;
-        let current_page = parseInt($(".ajax-blog__posts").attr("data-page"));
-        let max_pages = parseInt($(".ajax-blog__posts").attr("data-max"));
+        let current_page = parseInt($(".ajax-blogs__posts").attr("data-page"));
+        let max_pages = parseInt($(".ajax-blogs__posts").attr("data-max"));
 
         // Add new posts to content
         container.append(posts);

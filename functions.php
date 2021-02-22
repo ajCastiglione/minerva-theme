@@ -115,8 +115,8 @@ require 'theme/sidebars.php';
 /************* COMMENT LAYOUT *********************/
 require 'theme/comments.php';
 
-/************* Adds gravity forms field title visibilty toggle *********************/
-add_filter('gform_enable_field_label_visibility_settings', '__return_true');
+/************* UTILITIES/HELPERS *********************/
+require get_template_directory() . '/theme/utils.php';
 
 /************* CALL CUSTOM POST TYPES *********************/
 // Call custom post types here
