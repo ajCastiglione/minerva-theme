@@ -28,13 +28,14 @@ const blocks_scss = ["blocks/**/*.scss"];
 const blocks_js = ["blocks/**/*.js"];
 const editor = ["library/scss/editor-style.scss"];
 const scss = ["library/scss/*/*.scss", "library/blocks/**/*.scss"];
+const js = ["library/js/scripts.js"];
 const imgs = ["library/images/*"];
 const all = [
   "library/*.php",
   "*.php",
   "*/*.php",
   "**/**/*.php",
-  "library/js/*.js",
+  "library/js/**/*.js",
 ];
 
 const getFolders = (dir) =>
@@ -96,6 +97,34 @@ gulp.task("compile-blocks-js", function () {
         .pipe(bs.stream())
     )
   );
+});
+
+// Compile JS
+gulp.task("scripts", () => {
+  return gulp
+    .src(js)
+    .pipe(
+      webpack({
+        mode: "production",
+        output: {
+          filename: "scripts.js",
+        },
+        module: {
+          rules: [
+            {
+              test: /\.(js|jsx)$/,
+              use: ["babel-loader"],
+              exclude: /node_modules/,
+            },
+          ],
+        },
+      })
+    )
+    .pipe(gulpif(isDevelopment, sourcemaps.init()))
+    .pipe(gulpif(!isDevelopment, uglify()))
+    .pipe(rename({ extname: ".min.js" }))
+    .pipe(gulpif(isDevelopment, sourcemaps.write(".")))
+    .pipe(gulp.dest("./library/js/dist"));
 });
 
 //Compile scss
@@ -170,6 +199,7 @@ gulp.task("init", () => {
     files: all,
   });
   gulp.watch(scss, gulp.series("compile", "compile-login"));
+  gulp.watch(js, gulp.series("scripts"));
   gulp.watch(blocks_scss, gulp.series("compile-blocks-styles"));
   gulp.watch(blocks_js, gulp.series("compile-blocks-js"));
   gulp.watch(editor, gulp.series("compile-editor"));
@@ -181,6 +211,7 @@ gulp.task(
     "compile-blocks-styles",
     "compile-blocks-js",
     "compile",
+    "scripts",
     "compile-login",
     "compile-editor"
   )
