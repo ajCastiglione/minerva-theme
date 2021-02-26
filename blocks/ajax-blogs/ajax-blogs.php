@@ -15,6 +15,12 @@ if (!empty($block['className'])) {
 if (!empty($block['align'])) {
     $className .= ' align' . $block['align'];
 }
+if (!empty($block['backgroundColor'])) {
+    $className .= " bg-$block[backgroundColor]";
+}
+if (!empty($block['textColor'])) {
+    $className .= " txt-$block[backgroundColor]";
+}
 
 // Load values and assign defaults.
 $posts_per_page = intval(get_field('per_page'));

@@ -11,9 +11,12 @@ function my_acf_init()
             'render_callback'   => 'my_acf_block_render_callback',
             'category'          => 'layout',
             'icon'              => 'admin-post',
+            'mode'              => 'edit',
+            'align'             => 'full',
             'keywords'          => array('blogs', 'posts', 'ajax blog', 'ajax posts'),
             'enqueue_style'     => get_stylesheet_directory_uri() . '/library/dist/ajax-blogs/ajax-blogs.css',
-            'enqueue_script'     => get_stylesheet_directory_uri() . '/library/dist/ajax-blogs/ajax-blogs.min.js'
+            'enqueue_script'     => get_stylesheet_directory_uri() . '/library/dist/ajax-blogs/ajax-blogs.min.js',
+            'supports'           => array('color' => array('text' => true, 'background' => true))
         ));
     }
 }
