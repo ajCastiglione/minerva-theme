@@ -29,6 +29,7 @@ const blocks_js = ["blocks/**/*.js"];
 const editor = ["library/scss/editor-style.scss"];
 const scss = ["library/scss/*/*.scss", "library/blocks/**/*.scss"];
 const js = ["library/js/scripts.js"];
+const jsWatch = ["library/js/**/*.js", "!library/js/dist/*.js"];
 const imgs = ["library/images/*"];
 const all = [
   "library/*.php",
@@ -199,7 +200,7 @@ gulp.task("init", () => {
     files: all,
   });
   gulp.watch(scss, gulp.series("compile", "compile-login"));
-  gulp.watch(js, gulp.series("scripts"));
+  gulp.watch(jsWatch, gulp.series("scripts"));
   gulp.watch(blocks_scss, gulp.series("compile-blocks-styles"));
   gulp.watch(blocks_js, gulp.series("compile-blocks-js"));
   gulp.watch(editor, gulp.series("compile-editor"));
