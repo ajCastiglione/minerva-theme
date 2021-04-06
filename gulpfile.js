@@ -39,6 +39,15 @@ const all = [
   "library/js/**/*.js",
 ];
 
+const checkFileExists = (file) => {
+  const formattedFile = `${componentSrc}\\${file}\\${file}.js`;
+  if (fs.existsSync(formattedFile)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 const getFolders = (dir) =>
   fs
     .readdirSync(dir)
@@ -73,22 +82,26 @@ gulp.task("compile-blocks-js", function () {
     ...getFolders(componentSrc).map((folder) =>
       src(path.join(componentSrc, folder, "*.js"))
         .pipe(
-          webpack({
-            mode: "production",
-            output: {
-              filename: folder + ".js",
-            },
-            module: {
-              rules: [
-                {
-                  test: /\.(js|jsx)$/,
-                  use: ["babel-loader"],
-                  exclude: /node_modules/,
-                },
-              ],
-            },
-          })
+          gulpif(
+            checkFileExists(folder),
+            webpack({
+              mode: "production",
+              output: {
+                filename: folder + ".js",
+              },
+              module: {
+                rules: [
+                  {
+                    test: /\.(js|jsx)$/,
+                    use: ["babel-loader"],
+                    exclude: /node_modules/,
+                  },
+                ],
+              },
+            })
+          )
         )
+        // .pipe()
         .pipe(gulpif(isDevelopment, sourcemaps.init()))
         .pipe(concat(folder + ".js"))
         .pipe(gulpif(!isDevelopment, uglify()))

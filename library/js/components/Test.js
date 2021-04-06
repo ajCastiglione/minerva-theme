@@ -1,3 +1,3 @@
 export default function Test($) {
-  console.log("Seeing if this logs and compiles");
+  console.log("Checking to see if it refreshes");
 }
