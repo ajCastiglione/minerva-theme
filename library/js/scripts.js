@@ -2,8 +2,6 @@
  * Load imports here.
  */
 
-import Test from "./components/Test";
-
 jQuery(document).ready(function ($) {
-  Test($);
+  // Call funcs here
 }); /* end of as page load scripts */

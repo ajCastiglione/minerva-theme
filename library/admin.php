@@ -90,13 +90,6 @@ function bones_custom_dashboard_widgets()
 
 /************* CUSTOMIZE ADMIN *******************/
 
-/*
-I don't really recommend editing the admin too much
-as things may get funky if WordPress updates. Here
-are a few funtions which you can choose to use if
-you like.
-*/
-
 // Custom Backend Footer
 function bones_custom_admin_footer()
 {
