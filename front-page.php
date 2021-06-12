@@ -4,17 +4,17 @@
 
 	<div id="inner-content" class="wrap">
 
-		<main id="main" class="" role="main">
+		<main class="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+					<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
 
 						<header class="article-header">
 							<h1 class="page-title"><?php the_title(); ?></h1>
 						</header>
 
-						<section class="entry-content " itemprop="articleBody">
+						<section class="entry-content">
 							<?php the_content(); ?>
 						</section>
 

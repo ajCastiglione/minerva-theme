@@ -1,9 +1,9 @@
 <?php
-/*
-Author: Antonio Castiglione
-URL: https://minervawebdevelopment.com
 
-*/
+/**
+ * Author: Antonio Castiglione
+ * URL: https://minervawebdevelopment.com
+ */
 
 // LOAD BONES CORE (if you remove this, the theme will break)
 require_once('library/bones.php');
@@ -11,11 +11,10 @@ require_once('library/bones.php');
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
 require_once('library/admin.php');
 
-/*********************
-LAUNCH BONES
-Let's get everything up and running.
- *********************/
-
+/**
+ * LAUNCH BONES
+ * Let's get everything up and running.
+ */
 function bones_ahoy()
 {
   //Allow editor style.
@@ -61,7 +60,9 @@ function bones_ahoy()
 // let's get this party started
 add_action('after_setup_theme', 'bones_ahoy');
 
-/************* LOGIN PAGE STYLES  *************/
+/**
+ * LOGIN PAGE STYLES
+ */
 
 function my_admin_theme_style()
 {
@@ -70,38 +71,28 @@ function my_admin_theme_style()
 add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 add_action('login_enqueue_scripts', 'my_admin_theme_style');
 
-function minerva_url($url)
+function dev_url($url)
 {
   return 'https://minervawebdevelopment.com';
 }
-add_filter('login_headerurl', 'minerva_url');
+add_filter('login_headerurl', 'dev_url');
 
-/************* OEMBED SIZE OPTIONS *************/
-
+/**
+ * OEMBED SIZE OPTIONS
+ */
 if (!isset($content_width)) {
   $content_width = 680;
 }
 
-/************* THEME CUSTOMIZE *********************/
-
+/**
+ * THEME CUSTOMIZE
+ */
 function bones_theme_customizer($wp_customize)
 {
   // $wp_customize calls go here.
-  //
-  // Uncomment the below lines to remove the default customize sections 
-
   $wp_customize->remove_section('title_tagline');
   $wp_customize->remove_section('colors');
   $wp_customize->remove_section('background_image');
-  // $wp_customize->remove_section('static_front_page');
-  // $wp_customize->remove_section('nav');
-
-  // Uncomment the below lines to remove the default controls
-  // $wp_customize->remove_control('blogdescription');
-
-  // Uncomment the following to change the default section titles
-  // $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
-  // $wp_customize->get_section('background_image')->title = __( 'Images' );
 }
 
 add_action('customize_register', 'bones_theme_customizer');
@@ -109,27 +100,32 @@ add_action('customize_register', 'bones_theme_customizer');
 //sepreated customizer options by panels into thier own files
 require('library/customizer/panels/external-libraries.php');
 
-/************* ACTIVE SIDEBARS ********************/
-require 'theme/sidebars.php';
+/**
+ * ACTIVE SIDEBARS
+ */
+require_once(get_template_directory() .  '/theme/sidebars.php');
 
-/************* COMMENT LAYOUT *********************/
-require 'theme/comments.php';
+/**
+ * COMMENT LAYOUT
+ */
+require_once(get_template_directory() . '/theme/comments.php');
 
-/************* UTILITIES/HELPERS *********************/
-require get_template_directory() . '/theme/utils.php';
+/**
+ * UTILITIES/HELPERS
+ */
+require_once(get_template_directory() . '/theme/utils.php');
 
-/************* CALL CUSTOM POST TYPES *********************/
-// Call custom post types here
+/**
+ * Custom Post Types
+ */
 
-/************* CALL CUSTOM TAXONOMIES *********************/
-// Call taxonomies here
+/**
+ *  Custom Taxonomies 
+ */
 
-/************* ACF REGISTRATION *********************/
-// Activate ACF blocks
-require get_template_directory() . '/theme/acf-blocks.php';
-// Optional - Block Logic Files
-require get_template_directory() . '/theme/block-logic/admin-ajax.php';
-// Activate ACF settings page
-// require get_template_directory() . '/theme/acf-options-page.php';
-// Activate ACF json import/export
-// require get_template_directory() . '/theme/acf-saves.php';
+/**
+ * ACF Deps
+ */
+if (function_exists('ACF')) {
+  require_once(get_template_directory() . '/theme/acf.php');
+}

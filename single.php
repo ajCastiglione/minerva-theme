@@ -4,7 +4,7 @@
 
 	<div id="inner-content" class="wrap">
 
-		<main id="main" class="" role="main">
+		<main class="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -19,18 +19,15 @@
 						<h1><?php _e('Oops, Post Not Found!', 'bonestheme'); ?></h1>
 					</header>
 					<section class="entry-content">
-						<p><?php _e('Uh Oh. Something is missing. Try double checking things.', 'bonestheme'); ?></p>
+						<p><?php _e('Try double running a search to find the post you\'re looking for.', 'bonestheme'); ?></p>
+						<?= get_search_form() ?>
 					</section>
-					<footer class="article-footer">
-						<p><?php _e('This is the error message in the single.php template.', 'bonestheme'); ?></p>
-					</footer>
+
 				</article>
 
 			<?php endif; ?>
 
 		</main>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 
