@@ -4,7 +4,7 @@
 
 	<div id="inner-content" class="wrap">
 
-		<main id="main" class="" role="main">
+		<main class="main">
 
 			<?php
 			if (have_posts()) : while (have_posts()) : the_post();
@@ -25,10 +25,7 @@
 
 			<?php endif; ?>
 
-
 		</main>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 

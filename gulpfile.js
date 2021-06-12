@@ -27,7 +27,11 @@ const componentDist = path.join(__dirname, "library/dist");
 const blocks_scss = ["blocks/**/*.scss"];
 const blocks_js = ["blocks/**/*.js"];
 const editor = ["library/scss/editor-style.scss"];
-const scss = ["library/scss/*/*.scss", "library/blocks/**/*.scss"];
+const scss = [
+  "library/scss/*.scss",
+  "library/scss/*/*.scss",
+  "library/blocks/**/*.scss",
+];
 const js = ["library/js/scripts.js"];
 const jsWatch = ["library/js/**/*.js", "!library/js/dist/*.js"];
 const imgs = ["library/images/*"];
@@ -167,7 +171,7 @@ gulp.task("compile", () => {
 
 gulp.task("compile-login", () => {
   return gulp
-    .src("./library/scss/modules/login.scss")
+    .src("./library/scss/login.scss")
     .pipe(plumber())
     .pipe(
       sass({
