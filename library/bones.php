@@ -33,6 +33,30 @@ function bones_head_cleanup()
 
 } /* end bones head cleanup */
 
+/*********************
+SCRIPTS & ENQUEUEING
+ *********************/
+
+// loading modernizr and jquery, and reply script
+function bones_scripts_and_styles()
+{
+	if (!is_admin()) {
+
+		// register main stylesheet
+		wp_register_style('mwd-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all');
+
+		//adding scripts file in the footer
+		wp_register_script('mwd-js', get_stylesheet_directory_uri() . '/library/js/dist/scripts.min.js', array('jquery'), '', true);
+
+		// enqueue styles and scripts
+		wp_enqueue_style('mwd-stylesheet');
+		wp_enqueue_style('bones-ie-only');
+
+		wp_enqueue_script('jquery');
+		wp_enqueue_script('mwd-js');
+	}
+}
+
 function rw_title($title, $sep, $seplocation)
 {
 	global $page, $paged;
@@ -99,34 +123,6 @@ function bones_gallery_style($css)
 	return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
 
-
-/*********************
-SCRIPTS & ENQUEUEING
- *********************/
-
-// loading modernizr and jquery, and reply script
-function bones_scripts_and_styles()
-{
-
-	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-
-	if (!is_admin()) {
-
-		// register main stylesheet
-		wp_register_style('mwd-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all');
-
-		//adding scripts file in the footer
-		wp_register_script('mwd-js', get_stylesheet_directory_uri() . '/library/js/dist/scripts.min.js', array('jquery'), '', true);
-
-		// enqueue styles and scripts
-		wp_enqueue_style('mwd-stylesheet');
-		wp_enqueue_style('bones-ie-only');
-
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('mwd-js');
-	}
-}
-
 /*********************
 THEME SUPPORT
  *********************/
@@ -158,32 +154,8 @@ function bones_theme_support()
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 
-	// adding post format support
-	add_theme_support(
-		'post-formats',
-		array(
-			'aside',             // title less blurb
-			'gallery',           // gallery of images
-			'link',              // quick link to other site
-			'image',             // an image
-			'quote',             // a quick quote
-			'status',            // a Facebook like status update
-			'video',             // video
-			'audio',             // audio
-			'chat'               // chat transcript
-		)
-	);
-
 	// wp menus
 	add_theme_support('menus');
-
-	// registering wp3+ menus
-	register_nav_menus(
-		array(
-			'main-nav' => __('The Main Menu', 'bonestheme'),   // main nav in header
-			'footer-links' => __('Footer Links', 'bonestheme') // secondary nav in footer
-		)
-	);
 
 	// Enable support for HTML5 markup.
 	add_theme_support('html5', array(
@@ -191,37 +163,9 @@ function bones_theme_support()
 		'search-form',
 		'comment-form'
 	));
-
-	// Gutenberg Theme Support
-	add_theme_support('align-wide');
 } /* end bones theme support */
 
 
-/*********************
-PAGE NAVI
- *********************/
-
-// Numeric Page Navi (built into the theme by default)
-function bones_page_navi()
-{
-	global $wp_query;
-	$bignum = 999999999;
-	if ($wp_query->max_num_pages <= 1)
-		return;
-	echo '<nav class="pagination">';
-	echo paginate_links(array(
-		'base'         => str_replace($bignum, '%#%', esc_url(get_pagenum_link($bignum))),
-		'format'       => '',
-		'current'      => max(1, get_query_var('paged')),
-		'total'        => $wp_query->max_num_pages,
-		'prev_text'    => '&larr;',
-		'next_text'    => '&rarr;',
-		'type'         => 'list',
-		'end_size'     => 3,
-		'mid_size'     => 3
-	));
-	echo '</nav>';
-} /* end page navi */
 
 /*********************
 RANDOM CLEANUP ITEMS

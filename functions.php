@@ -61,6 +61,17 @@ function bones_ahoy()
 add_action('after_setup_theme', 'bones_ahoy');
 
 /**
+ * Pagi
+ */
+
+require_once(get_template_directory() . '/theme/pagination.php');
+
+/**
+ * Navigation
+ */
+require_once(get_template_directory() . '/theme/navigation.php');
+
+/**
  * LOGIN PAGE STYLES
  */
 
