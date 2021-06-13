@@ -105,7 +105,6 @@ gulp.task("compile-blocks-js", function () {
             })
           )
         )
-        // .pipe()
         .pipe(gulpif(isDevelopment, sourcemaps.init()))
         .pipe(concat(folder + ".js"))
         .pipe(gulpif(!isDevelopment, uglify()))
