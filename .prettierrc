@@ -1,11 +1,16 @@
 {
   "tabWidth": 4,
-  "overrides": [
-    {
-      "files": "*.js",
-      "options": {
-        "tabWidth": 2
-      }
-    }
-  ]
+    "printWidth": 100,
+    "bracketSpacing": true,
+    "parenSpacing": true,
+    "jsxBracketSameLine": false,
+    "semi": true,
+    "overrides": [
+        {
+            "files": "*.js",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }
