@@ -28,7 +28,10 @@ IMPORTING PARTIALS
 @import "navigation/nav";
 
 // Pages
-@import "pages/pages";
+@import "pages/*";
 
 // Singles
-@import "singles/singles";
+@import "singles/*";
+
+// Blocks
+@import "blocks/*";
