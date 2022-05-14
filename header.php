@@ -12,7 +12,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<title>
-		<?php wp_title(''); ?>
+		<?php wp_title( '' ); ?>
 	</title>
 
 	<meta name="HandheldFriendly" content="True">
@@ -25,10 +25,7 @@
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
 	<meta name="theme-color" content="#121212">
 
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
-	<!--external stylesheets / fonts / etc...-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<?php wp_head(); ?>
 
@@ -50,14 +47,18 @@
 
 				<div class="header-right">
 					<nav role="navigation">
-						<?php wp_nav_menu(array(
-							'container' => false,
-							'container_class' => 'menu',
-							'menu' => __('The Main Menu', 'bonestheme'),
-							'menu_class' => 'nav top-nav',
-							'theme_location' => 'main-nav',
-							'depth' => 2,
-						)); ?>
+						<?php
+						wp_nav_menu(
+							array(
+								'container'       => false,
+								'container_class' => 'menu',
+								'menu'            => __( 'The Main Menu', 'bonestheme' ),
+								'menu_class'      => 'nav top-nav',
+								'theme_location'  => 'main-nav',
+								'depth'           => 2,
+							)
+						);
+						?>
 					</nav>
 				</div>
 

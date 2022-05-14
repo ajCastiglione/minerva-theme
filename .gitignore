@@ -9,6 +9,7 @@ node_modules
 package-lock.json
 library/js/dist/
 library/css/style.css
+library/css/index.css
 library/css/login.css
 library/dist/*
 # Include fonts

@@ -64,7 +64,6 @@ add_action( 'after_setup_theme', 'bones_ahoy' );
 /**
  * Pagi
  */
-
 require_once get_template_directory() . '/theme/pagination.php';
 
 /**
@@ -144,3 +143,8 @@ require_once get_template_directory() . '/theme/utils.php';
 if ( function_exists( 'ACF' ) ) {
 	require_once get_template_directory() . '/theme/acf.php';
 }
+
+/**
+ * Custom AJAX Endpoints.
+ */
+require_once get_template_directory() . '/theme/block-logic/admin-ajax.php';

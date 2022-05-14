@@ -1,6 +1,3 @@
-$white: #fff;
-$black: #000;
-
 #ajax-blogs-block {
     .ajax-blogs {
         &__posts {
@@ -20,6 +17,12 @@ $black: #000;
                 background-color: $white;
                 box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
                 border-radius: 5px;
+            }
+        }
+        &__load-more {
+            &.loading {
+                opacity: 0.5;
+                pointer-events: none;
             }
         }
     }

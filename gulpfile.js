@@ -23,7 +23,7 @@ const config = {
     proxy: "http://mwdbasetheme.test/",
   },
   sassEntry: {
-    src: "./library/scss/style.scss",
+    src: "./library/scss/index.scss",
     dist: path.join(__dirname, "library/css"),
   },
   js: {
@@ -32,7 +32,12 @@ const config = {
   },
   filesToWatch: {
     js: ["library/js/**/*.js", "!/dist/js/*.js"],
-    sass: ["scss/*.scss", "scss/**/*.scss", "scss/**/**/*.scss", "scss/**/**/**/*.scss"],
+    sass: [
+      "library/scss/*.scss",
+      "library/scss/**/*.scss",
+      "library/scss/**/**/*.scss",
+      "library/scss/**/**/**/*.scss",
+    ],
     global: ["library/*.php", "*.php", "*/*.php", "**/**/*.php", "library/js/**/*.js"],
   },
 };
@@ -45,7 +50,7 @@ gulp.task("scripts", () => {
       webpack({
         mode: "production",
         output: {
-          filename: "master.js",
+          filename: "scripts.js",
         },
         module: {
           rules: [
@@ -70,24 +75,22 @@ gulp.task("scripts", () => {
 gulp.task("sass", () => {
   return gulp
     .src(config.sassEntry.src)
-    .pipe(sassGlob())
+    .pipe(sourcemaps.init())
     .pipe(plumber())
+    .pipe(sassGlob())
     .pipe(sass().on("error", sass.logError))
-    .pipe(
-      mmq({
-        log: true,
-      })
-    )
+    .pipe(mmq())
     .pipe(
       postcss([
-        cssnano(),
         autoprefixer({
           browsers: ["last 2 versions"],
           cascade: false,
           grid: true,
         }),
+        cssnano(),
       ])
     )
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(config.sassEntry.dist))
     .pipe(bs.stream());
 });

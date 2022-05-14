@@ -22,16 +22,16 @@ IMPORTING PARTIALS
 @import "modules/forms";
 
 // Global Styles
-@import "global/global";
+@import "global/global.scss";
 
 // Navigation
-@import "navigation/nav";
+@import "./navigation/nav";
 
 // Pages
-@import "pages/*";
+@import "pages/pages";
 
 // Singles
-@import "singles/*";
+@import "singles/singles";
 
 // Blocks
-@import "blocks/*";
+@import "blocks/blocks";
