@@ -1,0 +1,8 @@
+{
+    "name": "minerva/base-theme",
+    "description": "Base theme for Minerva",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
