@@ -2,6 +2,7 @@
     "name": "minerva/base-theme",
     "description": "Base theme for Minerva",
     "type": "wordpress-theme",
+    "version": "dev-master",
     "require": {
         "composer/installers": "~1.0"
     }
